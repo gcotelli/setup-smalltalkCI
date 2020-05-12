@@ -32,7 +32,7 @@ async function run() {
       const toolPath = await tc.downloadTool(`https://github.com/${smalltalkCISource}/archive/${smalltalkCIBranch}.tar.gz`)
       tempDir = await tc.extractTar(toolPath, tempDir)
     }
-    await io.mv(path.join(tempDir, `smalltalkCI-${smalltalkCIBranch}`), INSTALLATION_DIRECTORY)
+    await io.mv(path.join(tempDir, `smalltalkCI-${smalltalkCIBranch}`), INSTALLATION_DIRECTORY , { recursive: true})
 
     /* Install dependencies if any. */
     if (isLinux()) {
